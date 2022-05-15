@@ -82,3 +82,19 @@ In the MOK managerment screen, select reset MOK list
 Reboot then retry from the step make sign-install
 
 
+
+****************************************************************8
+Ok there is an issue with the dkms.conf that causes problems, so do sudo dkms remove rtl8723du/0.1 --all and sudo rm -r /usr/src/rtl8723du-0.1 Then go into the rtl8723du directory in your home directory and double click on dkms.conf and paste this in
+
+PACKAGE_NAME="rtl8723du"
+PACKAGE_VERSION=0.1
+MAKE="'make' all KVER=${kernelver}"
+CLEAN="make -C $kernel_source_dir clean"
+BUILT_MODULE_NAME[0]="8723du"
+DEST_MODULE_LOCATION[0]="/updates"
+REMAKE_INITRD=no
+AUTOINSTALL=yes
+
+
+
+*********************************************************************
